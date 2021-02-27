@@ -7,8 +7,8 @@
 基于python3.7 flask框架，部署基于gunicorn
 
 #### 使用说明
-1.环境要求，项目在pycharm下完成，可在window系统下实现本地运行，亦可部署至linux
-2.注意事项：
+1. 环境要求，项目在pycharm下完成，可在window系统下实现本地运行，亦可部署至linux.
+2. 注意事项：
 - mysql版本为5.7
 - 基于utf8，表结构见sql文件
 - 数据可通过spider.py运行获取
