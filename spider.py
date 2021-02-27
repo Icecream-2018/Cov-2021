@@ -179,6 +179,10 @@ def get_baidu_hot():
     button.click()
     time.sleep(1)
     """
+    """
+    原疫情热搜已被百度废除，换成百度热点，一次爬取27次数据
+    为显示效果，sql语句仍取20条
+    """
     c = browser.find_elements_by_xpath('//*[@id="main"]/div[2]/div/table/tbody/tr/td[2]/a[1]')
     h = browser.find_elements_by_xpath('//*[@id="main"]/div[2]/div/table/tbody/tr/td[4]/span')
     context = [i.text + j.text for i, j in zip(c, h)]
