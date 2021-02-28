@@ -183,10 +183,10 @@ def get_baidu_hot():
     原疫情热搜已被百度废除，换成百度热点，一次爬取27次数据
     为显示效果，sql语句仍取20条
     """
-    c = browser.find_elements_by_xpath('//*[@id="main"]/div[2]/div/table/tbody/tr/td[2]/a[1]')
-    h = browser.find_elements_by_xpath('//*[@id="main"]/div[2]/div/table/tbody/tr/td[4]/span')
+    c = browser.find_elements_by_xpath('//*[@id="main"]/div[2]/div/table/tbody/tr/td[2]/a[1]')[:20]
+    h = browser.find_elements_by_xpath('//*[@id="main"]/div[2]/div/table/tbody/tr/td[4]/span')[:20]
     context = [i.text + j.text for i, j in zip(c, h)]
-    print(context)
+    # print(context)
     browser.close()
     return context
 
@@ -214,6 +214,8 @@ def update_hotsearch():
 
 
 if __name__ == "__main__":
-    #  insert_history()
-    update_history()
-    update_details()
+    # insert_history()
+    # update_history()
+    # update_details()
+    update_hotsearch()
+    # get_baidu_hot()
