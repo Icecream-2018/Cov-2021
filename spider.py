@@ -3,6 +3,7 @@ import time
 import json
 import traceback  # 追踪异常
 import requests
+import sys
 from selenium.webdriver import Chrome, ChromeOptions
 
 
@@ -214,8 +215,20 @@ def update_hotsearch():
 
 
 if __name__ == "__main__":
-    # insert_history()
-    # update_history()
-    # update_details()
-    update_hotsearch()
-    # get_baidu_hot()
+    l = len(sys.argv)
+    if l == 1:
+        s = """
+            up_his 更新历史记录表
+            up_hot 更新实时热搜
+            up_det 更新详情表
+            """
+        print(s)
+    else:
+        order = sys.argv[1]
+        if order == "up_his":
+            update_history()
+        elif order == "up_det":
+            update_details()
+        elif order == "up_hot":
+            update_hotsearch()
+

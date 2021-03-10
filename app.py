@@ -72,7 +72,6 @@ def get_r2_data():
     for i in data:
         k = i[0].rstrip(string.digits)
         v = i[0][len(k):]
-        print(v)
         ks = extract_tags(k)
         for j in ks:
             if not j.isdigit():
