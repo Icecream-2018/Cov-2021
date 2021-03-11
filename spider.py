@@ -186,8 +186,8 @@ def get_baidu_hot():
     """
     c = browser.find_elements_by_xpath('//*[@id="main"]/div[2]/div/table/tbody/tr/td[2]/a[1]')[:20]
     h = browser.find_elements_by_xpath('//*[@id="main"]/div[2]/div/table/tbody/tr/td[4]/span')[:20]
-    context = [i.text + j.text for i, j in zip(c, h)]
-    # print(context)
+    context = [i.text + "|" + j.text for i, j in zip(c, h)]
+    print(context)
     browser.close()
     return context
 
@@ -215,20 +215,21 @@ def update_hotsearch():
 
 
 if __name__ == "__main__":
-    l = len(sys.argv)
-    if l == 1:
-        s = """
-            up_his 更新历史记录表
-            up_hot 更新实时热搜
-            up_det 更新详情表
-            """
-        print(s)
-    else:
-        order = sys.argv[1]
-        if order == "up_his":
-            update_history()
-        elif order == "up_det":
-            update_details()
-        elif order == "up_hot":
-            update_hotsearch()
+    # l = len(sys.argv)
+    # if l == 1:
+    #     s = """
+    #         up_his 更新历史记录表
+    #         up_hot 更新实时热搜
+    #         up_det 更新详情表
+    #         """
+    #     print(s)
+    # else:
+    #     order = sys.argv[1]
+    #     if order == "up_his":
+    #         update_history()
+    #     elif order == "up_det":
+    #         update_details()
+    #     elif order == "up_hot":
+    #         update_hotsearch()
+    get_baidu_hot()
 
